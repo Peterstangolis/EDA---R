@@ -54,7 +54,41 @@ boxplot(bike_buyer$Income)
 
 ## spread
 hist(bike_buyer$Income)
-plot(density(bike_buyer$Income), main = "Income Density Spread")
+plot(density(bike_buyer$Income), main = "Income Density Spread"))
 
 
+## EDUCATION: categorical, discrete
+summary(bike_buyer$Education)
+plot(bike_buyer$Education)
+
+
+## MARITAL STATUS: categorical, discrete
+summary(bike_buyer$Marital.Status)
+plot(bike_buyer$Marital.Status)
+plot(bike_buyer$Marital.Status, main="Married vs Single Buyers")
+
+
+pie(table(bike_buyer$Marital.Status), main="Married vs Single Buyers")
+
+
+## CHILDREN: 
+summary(bike_buyer$Children)
+plot(bike_buyer$Children)
+typeof(bike_buyer$Children)
+
+## Change to factor ##
+bike_buyer$Children = factor(bike_buyer$Children)
+summary(bike_buyer$Children)
+plot(bike_buyer$Children, xlab = "Num. of Children", ylab = "Frequency")
+
+## People who bought a bike ##
+library("dplyr")
+bough = filter(bike_buyer, Purchased.Bike == "Yes")
+plot(bough$Children)
+
+bike_buyer$Commute.Distance <- factor(bike_buyer$Commute.Distance)
+plot(bike_buyer$Commute.Distance)
+
+bike_buyer$Purchased.Bike <- factor(bike_buyer$Purchased.Bike)
+plot(bike_buyer$Purchased.Bike)
 
