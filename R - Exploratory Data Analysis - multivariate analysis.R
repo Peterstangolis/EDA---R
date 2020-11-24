@@ -45,14 +45,20 @@ legend(locator(1), levels(education_legend), fill = colfill)
 xtabs(~Education+Purchased.Bike, bike_buyer)
 plot(xtabs(~Education+Purchased.Bike, bike_buyer), main="Bike Buyers & Occupation")
 
+
 library(gmodels)
+## contingency table
 CrossTable(bike_buyer$Education, bike_buyer$Purchased.Bike, chisq = TRUE, prop.t = F)
+# chisquared = level of significance for categorical variables
+CrossTable(bike_buyer$Occupation, bike_buyer$Purchased.Bike, chisq = TRUE, prop.t = F)
 
 
+scatter.smooth(bike_buyer$Age, bike_buyer$Income)
 
-
-
-
+library(datasets)
+cars <- mtcars
+smoothScatter(cars$mpg, cars$hp, xlab="MPG", ylab="HP #")
+scatter.smooth(cars$mpg, cars$hp, xlab="MPG", ylab="HP #")
 
 
 
